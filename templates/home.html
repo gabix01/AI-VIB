@@ -1,0 +1,87 @@
+{% extends 'basic.html' %}
+{% block title %}  Home {% endblock title %} 
+{% block tabhome %} active {% endblock tabhome %}
+{% block body %}
+     {% load static %}
+
+ <section id="hero" class="d-flex align-items-center">
+
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <div class="row">
+        <div class="col-xl-6">
+          <h1>Discover a place you'll love to live</h1>
+
+
+          <h2>Take a deep dive and browse homes for sale, original neighborhood photos, resident reviews and local insights to find what is right for you.</h2>
+<!--          <a href="#about" class="btn-get-started scrollto">Login</a>-->
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+
+<!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Discover Your New Home</h2>
+          <p>Get the best real estate deals first,
+before they hit the mass market! Get the best real estate deals first,
+before they hit the mass market! HOT FORECLOSURE DEALS with one simple search</p>     </div>
+
+
+
+      </div>
+    </section>
+
+    <!-- End Testimonials Section -->
+
+
+
+
+<!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Buy your home with confidence!</h2>
+          </div>
+  
+        <div class="row">
+         {% for a in  app %}
+          <div class="col-lg-4 col-md-6">
+            <div class="box" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{a.image.url}}" alt="" style=' height:150px; width:300px; '> 
+                </br>
+                </br>
+                <label>OwnerName : {{a.owner}},</label>
+                 <label>Owner PhoneNO : {{a.OPhone}},</label>
+                  <label>Renter Name : {{a.renter}},</label>
+                   <label>Renter PhoneNo : {{a.RPhone}},</label>
+                 </div>
+          </div>
+          </br>
+             {% endfor %}
+        </div>
+   
+      </div>
+    </section><!-- End Pricing Section -->
+
+
+<!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>USING VIDEO FOR MORE PREDICTIVE INTERVIEW QUESTIONS</h2>
+          <p>Reduce your time-to-hire by up to 80% and free up headspace for other HR priorities.
+Here's how to improve the candidate experience, promote your organization, and predict how applicants would perform on the job.</p>
+        </div>
+
+
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+
+{% endblock body %}

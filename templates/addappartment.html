@@ -1,0 +1,242 @@
+{% extends 'basic1.html' %}
+{% block title %} Add Job {% endblock title %}
+
+{% block body %}
+{% load static %}
+
+
+  
+
+<section id="main-content">
+  <section class="wrapper">
+     {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+
+      {% if message.tags == "success" %}
+      <strong>Well done!</strong> {{ message}}
+      {% else %}
+      <strong>Error!</strong> {{ message}}
+      {% endif %}
+
+    </div>
+    {% endfor %}
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="page-header" Style='color:black; '><i class="fa fa-table"></i>Add New Apartments</h3>
+ 
+        <ol class="breadcrumb">
+          <li><i class="fa fa-home"></i><a href="/company/dashboard/">Dashboard</a></li>
+          <li><i class="fa fa-table"></i>Data</li>
+          <li><i class="fa fa-table"></i>Add New Apartments</li>
+
+        </ol>
+      </div>
+
+    </div>
+    
+
+    <section class="panel">
+      <header class="panel-heading">
+         Form
+      </header>
+      <div class="panel-body">
+        {% if app %}
+        {% for a in app %}
+
+        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+             <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">StorageUnit No:</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="job_title" name="sno" value={{a.stno}}
+                required>
+
+            </div>
+            </div>
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Appartment Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="appname" value={{a.appname}}
+                required>
+
+            </div>
+          </div>
+          
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Owner Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="oname" value={{a.owner}}
+                required>
+
+            </div>
+          </div>
+               <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Owner PhoneNO</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="ophone" value={{a.OPhone}}
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Renter Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="renter" value={{a.renter}}
+                required>
+
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Renter PhoneNO</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="rphone" value={{a.RPhone}}
+                required>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Share</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="job_title" name="share" value={{a.share}}
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Start Date</label>
+            <div class="col-lg-6">
+              <input type="date" class="form-control" id="job_title" name="sdate" value={{a.startdate|date:'Y-m-d'}}
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Expire Date</label>
+            <div class="col-lg-6">
+              <input type="date" class="form-control" id="job_title" name="edate" value={{a.expiredate|date:'Y-m-d'}}
+                required>
+
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Image</label>
+            <div class="col-lg-6">
+               <input type="file" name="file" required >
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <button type="submit" class="btn btn-danger">Save</button>
+            </div>
+          </div>
+        </form>
+     
+       
+        {% endfor %}
+        {% else %}
+        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">StorageUnit No:</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="job_title" name="sno" placeholder="Enter Number"
+                required>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Appartment Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="appname" placeholder="Enter Apparment Name"
+                required>
+
+            </div>
+          </div>
+          
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Owner Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="oname" placeholder="Enter Owner Name"
+                required>
+
+            </div>
+          </div>
+               <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Owner PhoneNO</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="ophone" placeholder="Enter Owner Name"
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Renter Name</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="renter" placeholder="Enter Apparment Price"
+                required>
+
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Renter PhoneNO</label>
+            <div class="col-lg-6">
+              <input type="text" class="form-control" id="job_title" name="rphone" placeholder="Enter Apparment Price"
+                required>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Share</label>
+            <div class="col-lg-6">
+              <input type="number" class="form-control" id="job_title" name="share" placeholder="Enter Apparment Price"
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Start Date</label>
+            <div class="col-lg-6">
+              <input type="date" class="form-control" id="job_title" name="sdate" placeholder="Enter Start Date"
+                required>
+
+            </div>
+          </div>
+            <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Expire Date</label>
+            <div class="col-lg-6">
+              <input type="date" class="form-control" id="job_title" name="edate" placeholder="Enter Expire Date"
+                required>
+
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="inputJobTitle" class="col-lg-2 control-label">Image</label>
+            <div class="col-lg-6">
+               <input type="file" name="file" required >
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <button type="submit" class="btn btn-danger">Save</button>
+            </div>
+          </div>
+        </form>
+        {% endif %}
+
+      </div>
+    </section>
+
+
+    
+  </section>
+
+</section>
+
+
+
+
+{% endblock body %}
